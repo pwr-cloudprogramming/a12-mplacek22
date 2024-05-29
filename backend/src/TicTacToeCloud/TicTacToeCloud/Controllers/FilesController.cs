@@ -9,11 +9,12 @@ namespace TicTacToeCloud.Controllers
     public class FilesController : ControllerBase
     {
         private readonly IAmazonS3 _s3Client;
-        private readonly string _bucketName = "tic-tac-toe-pic-bucket";
+        private readonly string _bucketName;
 
         public FilesController(IAmazonS3 s3Client)
         {
             _s3Client = s3Client;
+            _bucketName = Environment.GetEnvironmentVariable("S3_BUCKET_NAME") ?? "tic-tac-toe-pic-bucket";
         }
 
         [HttpPost("upload")]

@@ -256,6 +256,10 @@ resource "aws_ecs_task_definition" "tictactoe_backend_task" {
         {
           name  = "COGNITO_CLIENT_ID"
           value = aws_cognito_user_pool_client.public_client.id
+        },
+        {
+          name  = "S3_BUCKET_NAME"
+          value = aws_s3_bucket.profile_pictures.bucket
         }
       ]
     }
@@ -299,6 +303,8 @@ resource "aws_ecs_task_definition" "tictactoe_frontend_task" {
       ]
     }
   ])
+
+  depends_on = [aws_s3_bucket.profile_pictures, aws_cognito_user_pool.test_pool, aws_cognito_user_pool_client.public_client]
 }
 
 resource "aws_ecs_service" "tictactoe_backend_service" {
