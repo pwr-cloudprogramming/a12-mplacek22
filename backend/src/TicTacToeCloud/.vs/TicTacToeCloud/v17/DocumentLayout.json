@@ -1,0 +1,141 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{367DE059-DA4A-4FCC-BF4E-5D78CEE56872}|TicTacToeCloud\\TicTacToeCloud.csproj|c:\\studia\\semestr_6\\programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\tictactoecloud\\tictactoecloud\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{367DE059-DA4A-4FCC-BF4E-5D78CEE56872}|TicTacToeCloud\\TicTacToeCloud.csproj|solutionrelative:tictactoecloud\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{367DE059-DA4A-4FCC-BF4E-5D78CEE56872}|TicTacToeCloud\\TicTacToeCloud.csproj|c:\\studia\\semestr_6\\programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\tictactoecloud\\tictactoecloud\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{367DE059-DA4A-4FCC-BF4E-5D78CEE56872}|TicTacToeCloud\\TicTacToeCloud.csproj|solutionrelative:tictactoecloud\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{367DE059-DA4A-4FCC-BF4E-5D78CEE56872}|TicTacToeCloud\\TicTacToeCloud.csproj|c:\\studia\\semestr_6\\programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\tictactoecloud\\tictactoecloud\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{367DE059-DA4A-4FCC-BF4E-5D78CEE56872}|TicTacToeCloud\\TicTacToeCloud.csproj|solutionrelative:tictactoecloud\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{367DE059-DA4A-4FCC-BF4E-5D78CEE56872}|TicTacToeCloud\\TicTacToeCloud.csproj|c:\\studia\\semestr_6\\programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\tictactoecloud\\tictactoecloud\\jwtbearerconfigureoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{367DE059-DA4A-4FCC-BF4E-5D78CEE56872}|TicTacToeCloud\\TicTacToeCloud.csproj|solutionrelative:tictactoecloud\\jwtbearerconfigureoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{367DE059-DA4A-4FCC-BF4E-5D78CEE56872}|TicTacToeCloud\\TicTacToeCloud.csproj|c:\\studia\\semestr_6\\programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\tictactoecloud\\tictactoecloud\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{367DE059-DA4A-4FCC-BF4E-5D78CEE56872}|TicTacToeCloud\\TicTacToeCloud.csproj|solutionrelative:tictactoecloud\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{367DE059-DA4A-4FCC-BF4E-5D78CEE56872}|TicTacToeCloud\\TicTacToeCloud.csproj|c:\\studia\\semestr_6\\programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\tictactoecloud\\tictactoecloud\\tictactoecloud.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{367DE059-DA4A-4FCC-BF4E-5D78CEE56872}|TicTacToeCloud\\TicTacToeCloud.csproj|solutionrelative:tictactoecloud\\tictactoecloud.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\Program.cs",
+              "RelativeDocumentMoniker": "TicTacToeCloud\\Program.cs",
+              "ToolTip": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\Program.cs",
+              "RelativeToolTip": "TicTacToeCloud\\Program.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAwBQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-13T08:40:03.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\appsettings.json",
+              "RelativeDocumentMoniker": "TicTacToeCloud\\appsettings.json",
+              "ToolTip": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\appsettings.json",
+              "RelativeToolTip": "TicTacToeCloud\\appsettings.json",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAcAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-24T15:39:45.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "JwtBearerConfigureOptions.cs",
+              "DocumentMoniker": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\JwtBearerConfigureOptions.cs",
+              "RelativeDocumentMoniker": "TicTacToeCloud\\JwtBearerConfigureOptions.cs",
+              "ToolTip": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\JwtBearerConfigureOptions.cs",
+              "RelativeToolTip": "TicTacToeCloud\\JwtBearerConfigureOptions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T15:36:24.305Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\Dockerfile",
+              "RelativeDocumentMoniker": "TicTacToeCloud\\Dockerfile",
+              "ToolTip": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\Dockerfile",
+              "RelativeToolTip": "TicTacToeCloud\\Dockerfile",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-05-24T16:41:49.752Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameController.cs",
+              "DocumentMoniker": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\Controllers\\GameController.cs",
+              "RelativeDocumentMoniker": "TicTacToeCloud\\Controllers\\GameController.cs",
+              "ToolTip": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\Controllers\\GameController.cs",
+              "RelativeToolTip": "TicTacToeCloud\\Controllers\\GameController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAEgAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T15:42:47.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TicTacToeCloud.http",
+              "DocumentMoniker": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\TicTacToeCloud.http",
+              "RelativeDocumentMoniker": "TicTacToeCloud\\TicTacToeCloud.http",
+              "ToolTip": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\TicTacToeCloud.http",
+              "RelativeToolTip": "TicTacToeCloud\\TicTacToeCloud.http",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-05-15T14:36:56.917Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 192,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0504ff91-9d61-11d0-a794-00a0c9110051}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{4a18f9d0-b838-11d0-93eb-00a0c90f2734}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

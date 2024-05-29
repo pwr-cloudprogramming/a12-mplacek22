@@ -1,0 +1,106 @@
+[
+  {
+    "ContainingType": "TicTacToeCloud.Controllers.GameController",
+    "Method": "Connect",
+    "RelativePath": "Game/connect",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TicTacToeCloud.Controllers.Dto.ConnectRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TicTacToeCloud.Models.Game",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TicTacToeCloud.Controllers.GameController",
+    "Method": "ConnectRandom",
+    "RelativePath": "Game/connect/random",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "player",
+        "Type": "TicTacToeCloud.Models.Player",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TicTacToeCloud.Models.Game",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TicTacToeCloud.Controllers.GameController",
+    "Method": "Gameplay",
+    "RelativePath": "Game/gameplay",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TicTacToeCloud.Models.GamePlay",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TicTacToeCloud.Models.Game",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TicTacToeCloud.Controllers.GameController",
+    "Method": "Start",
+    "RelativePath": "Game/start",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "player",
+        "Type": "TicTacToeCloud.Models.Player",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TicTacToeCloud.Models.Game",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]
