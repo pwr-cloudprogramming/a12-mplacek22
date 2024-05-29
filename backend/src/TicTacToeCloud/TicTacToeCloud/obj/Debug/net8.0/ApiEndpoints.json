@@ -1,5 +1,63 @@
 [
   {
+    "ContainingType": "TicTacToeCloud.Controllers.FilesController",
+    "Method": "GetFileByUsernameAsync",
+    "RelativePath": "api/Files/get-by-username",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicTacToeCloud.Controllers.FilesController",
+    "Method": "GetPresignedUrl",
+    "RelativePath": "api/Files/getPresignedUrl",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fileName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicTacToeCloud.Controllers.FilesController",
+    "Method": "UploadFileAsync",
+    "RelativePath": "api/Files/upload",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TicTacToeCloud.Controllers.GameController",
     "Method": "Connect",
     "RelativePath": "Game/connect",

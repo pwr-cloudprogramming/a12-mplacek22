@@ -1,3 +1,4 @@
+using Amazon.S3;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using TicTacToeCloud;
 using TicTacToeCloud.Hubs;
@@ -53,6 +54,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 builder.Services.ConfigureOptions<JwtBearerConfigureOptions>();
+
+// AWS Configuration
+builder.Services.AddDefaultAWSOptions(builder.Configuration.GetAWSOptions());
+builder.Services.AddAWSService<IAmazonS3>();
+
 
 var app = builder.Build();
 

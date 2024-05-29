@@ -17,12 +17,15 @@ function connectToSocket(gameId) {
         displayResponse(gameData);
     });
 
-    connection.on("JoinedGame", function (gameData) {
+    connection.on("JoinedGame", async function (gameData) {
         console.log(gameData);
         if (playerType == 1 && gameData.player2.login != undefined) {
             $("#oponentLogin").text(gameData.player2.login);
-            $("#oponentProfilePic").attr("src", gameData.player2.profilePicUrl);
-            alert("Player 2 entered game: " + gameData.player2.login)
+            const profilePicUrl = await getProfilePicUrl(gameData.player2.login);
+            if (profilePicUrl) {
+                $("#oponentProfilePic").attr("src", profilePicUrl);
+            }
+            alert("Player 2 entered game: " + gameData.player2.login);
             gameOn = true;
         }
     });
@@ -50,23 +53,6 @@ function makeAuthenticatedRequest(settings) {
     });
 }
 
-async function uploadProfilePic(file) {
-    const s3 = new AWS.S3();
-    const params = {
-        Bucket: 'tictactoe-profile-pictures',
-        Key: `${Date.now()}_${file.name}`,
-        Body: file,
-        ACL: 'public-read'
-    };
-
-    try {
-        const { Location } = await s3.upload(params).promise();
-        return Location;
-    } catch (error) {
-        console.error('Error uploading profile picture: ', error);
-        return null;
-    }
-}
 
 async function createGame() {
     let login = localStorage.getItem("loggedInUser");
@@ -97,6 +83,14 @@ async function createGame() {
     }
 }
 
+async function updateOponentData(oponentLogin){
+    $("#oponentLogin").text(oponentLogin);
+    const profilePicUrl = await getProfilePicUrl(oponentLogin);
+    if (profilePicUrl) {
+        $("#oponentProfilePic").attr("src", profilePicUrl);
+    }
+}
+
 function connectToRandom() {
     let login = localStorage.getItem("loggedInUser");
     if (login == null || login === '') {
@@ -116,8 +110,7 @@ function connectToRandom() {
                 $("#playerTicToe").text("O");
                 reset();
                 connectToSocket(gameId);
-                $("#oponentLogin").text(data.player1.login);
-                $("#oponentProfilePic").attr("src", data.player1.profilePicUrl);
+                updateOponentData(data.player1.login);
                 alert("Congrats you're playing with: " + data.player1.login);
             },
             error: function (error) {
@@ -127,6 +120,7 @@ function connectToRandom() {
         });
     }
 }
+
 
 function connectToSpecificGame() {
     let login = localStorage.getItem("loggedInUser");
@@ -155,8 +149,7 @@ function connectToSpecificGame() {
                 $("#playerTicToe").text("O");
                 reset();
                 connectToSocket(gameId);
-                $("#oponentLogin").text(data.player1.login);
-                $("#oponentProfilePic").attr("src", data.player1.profilePicUrl);
+                updateOponentData(data.player1.login);
                 alert("Congrats you're playing with: " + data.player1.login);
             },
             error: function (error) {
@@ -166,6 +159,7 @@ function connectToSpecificGame() {
         });
     }
 }
+
 
 function playerTurn(turn, id) {
     if (gameOn) {
@@ -198,7 +192,9 @@ function makeAMove(type, xCoordinate, yCoordinate) {
     });
 }
 
+
 function displayResponse(data) {
+
     let board = data.board;
     for (let i = 0; i < board.length; i++) {
         for (let j = 0; j < board[i].length; j++) {
@@ -238,3 +234,4 @@ function reset() {
 $("#reset").click(function () {
     reset();
 });
+

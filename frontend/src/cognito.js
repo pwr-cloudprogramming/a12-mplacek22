@@ -27,7 +27,26 @@ function getUser(userName) {
     return cognitoUser;
 }
 
-function signUpUser(userName, userEmail, userPassword, profilePicUrl, callback) {
+async function uploadProfilePic(file, username) {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const response = await fetch(`${url}/api/files/upload?username=${username}`, {
+        method: 'POST',
+        body: formData
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        return data.url;
+    } else {
+        const errorText = await response.text();
+        console.error('Error uploading profile picture:', errorText);
+        return null;
+    }
+}
+
+function signUpUser(userName, userEmail, userPassword, profilePic, callback) {
     let dataEmail = {
         Name: 'email',
         Value: userEmail
@@ -36,25 +55,34 @@ function signUpUser(userName, userEmail, userPassword, profilePicUrl, callback) 
         Name: 'preferred_username',
         Value: userName
     };
-    let dataProfilePic = {
-        Name: 'profile_pic',
-        Value: profilePicUrl
-    };
     let attributeList = [
         new AmazonCognitoIdentity.CognitoUserAttribute(dataEmail),
-        new AmazonCognitoIdentity.CognitoUserAttribute(dataName),
-        new AmazonCognitoIdentity.CognitoUserAttribute(dataProfilePic)
+        new AmazonCognitoIdentity.CognitoUserAttribute(dataName)
     ];
 
     let userPool = getUserPool();
-    userPool.signUp(userName, userPassword, attributeList, null, function (err, result) {
-        if (err) {
+    
+    // Upload profile picture first
+    uploadProfilePic(profilePic, userName)
+        .then(profilePicUrl => {
+            if (profilePicUrl) {
+                // You may store the profilePicUrl in user attributes or separately as needed.
+                userPool.signUp(userName, userPassword, attributeList, null, function (err, result) {
+                    if (err) {
+                        callback(err, null);
+                    } else {
+                        cognitoUser = result.user;
+                        // Optionally save profilePicUrl to user attributes
+                        callback(null, result);
+                    }
+                });
+            } else {
+                callback(new Error('Profile picture upload failed'), null);
+            }
+        })
+        .catch(err => {
             callback(err, null);
-        } else {
-            cognitoUser = result.user;
-            callback(null, result);
-        }
-    });
+        });
 }
 
 function confirmUser(userName, code, callback) {
@@ -68,13 +96,39 @@ function wrapCallback(callback) {
     };
 }
 
+async function getProfilePicUrl(username) {
+    const response = await fetch(`${url}/api/files/get-by-username?username=${username}`);
+    if (response.ok) {
+        const blob = await response.blob();
+        return URL.createObjectURL(blob);
+    } else {
+        const errorText = await response.text();
+        console.error('Error fetching profile picture URL:', errorText);
+        return null;
+    }
+}
+
+window.uploadProfilePic = uploadProfilePic;
+
 function signInUser(userName, password, callback) {
     let authenticationData = {
         Username: userName,
         Password: password,
     };
     var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails(authenticationData);
-    getUser(userName).authenticateUser(authenticationDetails, wrapCallback(callback));
+    getUser(userName).authenticateUser(authenticationDetails, wrapCallback(async (err, result) => {
+        if (err) {
+            callback(err, null);
+        } else {
+            // Retrieve profile picture URL
+            const profilePicUrl = await getProfilePicUrl(userName);
+            if (profilePicUrl) {
+                localStorage.setItem("profilePicUrl", profilePicUrl);
+            }
+            callback(null, result);
+            updateSignedInUsername(userName); // Ensure the UI is updated after signing in
+        }
+    }));
 }
 
 function signOutUser(callback) {
@@ -164,29 +218,6 @@ var user = {
     }
 };
 
-function inputCredentials() {
-    if ((localStorage["aws-congnito-user-pool-id"] !== undefined) &&
-        (localStorage["aws-congnito-app-id"] !== undefined)) {
-        $("#cognitoUserPoolId").val(localStorage["aws-congnito-user-pool-id"]);
-        $("#applicationId").val(localStorage["aws-congnito-app-id"]);
-    }
-    $("#credentialsModal").modal();
-}
-
-function saveCredentials() {
-    let userPoolId = $("#cognitoUserPoolId").val();
-    localStorage.setItem("aws-congnito-user-pool-id", userPoolId);
-    let appId = $("#applicationId").val();
-    localStorage.setItem("aws-congnito-app-id", appId);
-}
-
-function clearCredentials() {
-    localStorage.removeItem("aws-congnito-user-pool-id");
-    localStorage.removeItem("aws-congnito-app-id");
-    $("#cognitoUserPoolId").val("");
-    $("#applicationId").val("");
-}
-
 function visibility(divElementId, show = false) {
     let divElement = document.getElementById(divElementId);
     if (show) {
@@ -238,32 +269,32 @@ function createCallback(successMessage, userName = "", email = "", confirmed = "
     };
 }
 
+
+
 function updateSignedInUsername(userName) {
     document.getElementById("signedInUsername").innerText = userName ? `Signed in as: ${userName}` : "";
+    const profilePicUrl = localStorage.getItem("profilePicUrl");
+    if (profilePicUrl) {
+        document.getElementById("signedInUserProfilePic").src = profilePicUrl;
+    }
 }
 
-async function modalFormEnter() {
+function modalFormEnter() {
     let buttonText = $("#modalFormButton").text();
     let username = $("#userName").val();
     let email = $("#userEmail").val();
     let code = $("#userConfirmationCode").val();
     let password = $("#userPassword").val();
     let newPassword = $("#newUserPassword").val();
-    let profilePic = document.getElementById("userProfilePic").files[0];
+    let profilePic = $("#userProfilePic")[0].files[0];
 
     let callback;
     let message;
-
-    let profilePicUrl = null;
-    if (profilePic) {
-        profilePicUrl = await uploadProfilePic(profilePic);
-    }
-
     switch (buttonText) {
         case "Sign Up":
             message = `user ${username} added to the user pool`;
             callback = createCallback(message, username, email, "No", "Created");
-            signUpUser(username, email, password, profilePicUrl, callback);
+            signUpUser(username, email, password, profilePic, callback);
             break;
 
         case "Confirm":
@@ -281,9 +312,10 @@ async function modalFormEnter() {
     $("#addUserModal").modal('hide');
 }
 
-function updateModal(showName, showEmail, showPassword, showNewPassword, showConfirm, buttonText, title) {
+function updateModal(showName, showEmail, showProfilePic, showPassword, showNewPassword, showConfirm, buttonText, title) {
     visibility("userNameDiv", showName);
     visibility("userEmailDiv", showEmail);
+    visibility("userProfilePicDiv", showProfilePic);
     if (showNewPassword) {
         visibility("userNewPasswordDiv", true);
         $("#passwordLabel").text("Current Password");
@@ -293,7 +325,6 @@ function updateModal(showName, showEmail, showPassword, showNewPassword, showCon
     }
     visibility("userPasswordDiv", showPassword);
     visibility("confirmationCode", showConfirm);
-    visibility("userProfilePicDiv", showName && showEmail);  // Show profile pic upload only for sign up
     $("#modalFormButton").text(buttonText);
     $("#addUserModalLabel").text(title);
     $("#addUserModal").modal();
@@ -308,15 +339,15 @@ function toggleShowPassword(checkBoxId, inputId) {
 }
 
 function actionAddUser() {
-    updateModal(true, true, true, false, false, "Sign Up", "Add a new user to the pool");
+    updateModal(true, true, true, true, false, false, "Sign Up", "Add a new user to the pool");
 }
 
 function actionConfirmUser() {
-    updateModal(true, false, false, false, true, "Confirm", "Confirm a new user");
+    updateModal(true, false, false, false, false, true, "Confirm", "Confirm a new user");
 }
 
 function actionSignInUser() {
-    updateModal(true, false, true, false, false, "Sign In", "Authenticate user");
+    updateModal(true, false, false, true, false, false, "Sign In", "Authenticate user");
 }
 
 function signOutUser(callback) {

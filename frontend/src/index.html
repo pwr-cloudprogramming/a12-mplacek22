@@ -11,12 +11,12 @@
 </head>
 <body>
     <div class="top-bar">
+        <img id="signedInUserProfilePic" src="" alt="Signed In User Profile Picture" width="50" height="50">
         <span id="signedInUsername"></span>
         <button id="signInButton" onclick="actionSignInUser()">Sign In</button>
         <button id="signUpButton" onclick="actionAddUser()">Sign Up</button>
         <button id="signOutButton" onclick="actionSignOutUser()">Sign Out</button>
         <button id="confirmButton" onclick="actionConfirmUser()">Confirm user</button>
-        <button id="credentialsButton" onclick="inputCredentials()">Credentials</button>
     </div>
     <div class="text-center" id="box">
         <header>
@@ -52,38 +52,6 @@
         </div>
     </div>
 
-    <!-- Modals -->
-    <div class="modal fade" id="credentialsModal" tabindex="-1" role="dialog" aria-labelledby="credentialsModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">&times;</span>
-                        <span class="sr-only">Close</span>
-                    </button>
-                    <h4 class="modal-title" id="credentialsModalLabel">Provide IDs for AWS Cognito User Pool and Application</h4>
-                </div>
-                <div class="modal-body">
-                    <div role="form">
-                        <div class="form-group">
-                            <label for="cognitoUserPoolId">User Pool</label>
-                            <input type="text" class="form-control" id="cognitoUserPoolId" placeholder="Cognito User Pool ID"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="applicationId">Application</label>
-                            <input type="text" class="form-control" id="applicationId" placeholder="Application ID"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default btn-left" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearCredentials()">Forget</button>
-                    <button type="button" class="btn btn-primary btn-right" data-dismiss="modal" onclick="saveCredentials()">Save</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -104,6 +72,10 @@
                             <label for="userEmail">Email address</label>
                             <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="Enter email">
                         </div>
+                        <div class="form-group" id="userProfilePicDiv">
+                            <label for="userProfilePic">Profile Picture</label>
+                            <input type="file" class="form-control" id="userProfilePic" accept="image/*">
+                        </div>
                         <div class="form-group" id="confirmationCode" hidden>
                             <label for="userConfirmationCode">Confirmation code</label>
                             <input type="text" class="form-control" id="userConfirmationCode" placeholder="Enter confirmation code">
@@ -119,10 +91,6 @@
                             <input type="password" class="form-control" id="newUserPassword" placeholder="Enter password">
                             <input type="checkbox" class="form-check-input" id="showNewPasswordCheckbox" onclick="toggleShowPassword('showNewPasswordCheckbox', 'newUserPassword')">
                             <label class="form-check-label" for="showNewPasswordCheckbox">show</label>
-                        </div>
-                        <div class="form-group" id="userProfilePicDiv">
-                            <label for="userProfilePic">Profile Picture</label>
-                            <input type="file" class="form-control" id="userProfilePic">
                         </div>
                     </div>
                 </div>
@@ -143,6 +111,7 @@
     <script src="index.js"></script>
     <script src="amazon-cognito-identity.min.js"></script>
     <script src="amazon-cognito-identity.js"></script>
+    <script src="pictures.js"></script>
     <script type="text/javascript" src="cognito.js"></script>
 </body>
 </html>
