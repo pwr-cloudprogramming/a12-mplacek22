@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\TicTacToeCloud.csproj": {}
+    "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a12-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\TicTacToeCloud.csproj": {}
   },
   "projects": {
-    "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\TicTacToeCloud.csproj": {
+    "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a12-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\TicTacToeCloud.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\TicTacToeCloud.csproj",
+        "projectUniqueName": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a12-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\TicTacToeCloud.csproj",
         "projectName": "TicTacToeCloud",
-        "projectPath": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\TicTacToeCloud.csproj",
+        "projectPath": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a12-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\TicTacToeCloud.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\obj\\",
+        "outputPath": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a12-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

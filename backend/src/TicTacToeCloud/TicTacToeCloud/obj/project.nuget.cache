@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lhT0kQ7ZpUqbX+BqgTPk1Iq2Pqx6PXlxYf4PpHv2T3sN4aN535GQ1k+GJLGp3MAE2zA/0r+zPsKS0qD/wTUdQA==",
+  "dgSpecHash": "xxMQRzgd4oxydLbxrjNvmB4h25MrBHOzZeA1g9mKTC9SwM9+n9MqO5bRDFbRRCj3f+HY+lrw27uPQmHG3VthTg==",
   "success": true,
-  "projectFilePath": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a10-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\TicTacToeCloud.csproj",
+  "projectFilePath": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a12-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\TicTacToeCloud.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.5\\microsoft.aspnetcore.authentication.jwtbearer.8.0.5.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

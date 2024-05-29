@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TicTacToeCloud")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2cd35c5262656597b74395d9d5bd00c90902aef1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa81f6647d1e4d085ff356d12a7d7a37bd1251dc")]
 [assembly: System.Reflection.AssemblyProductAttribute("TicTacToeCloud")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TicTacToeCloud")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
