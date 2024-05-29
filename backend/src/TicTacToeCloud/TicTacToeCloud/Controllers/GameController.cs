@@ -6,6 +6,7 @@ using TicTacToeCloud.Exceptions;
 using TicTacToeCloud.Hubs;
 using TicTacToeCloud.Models;
 using TicTacToeCloud.Services;
+using System.Threading.Tasks;
 
 namespace TicTacToeCloud.Controllers
 {
@@ -16,11 +17,13 @@ namespace TicTacToeCloud.Controllers
     {
         private readonly GameService _gameService;
         private readonly IHubContext<GameHub> _hubContext;
+        private readonly ScoreService _scoreService;
 
-        public GameController(GameService gameService, IHubContext<GameHub> hubContext)
+        public GameController(GameService gameService, IHubContext<GameHub> hubContext, ScoreService scoreService)
         {
             _gameService = gameService;
             _hubContext = hubContext;
+            _scoreService = scoreService;
         }
 
         [HttpPost("start")]
@@ -65,12 +68,27 @@ namespace TicTacToeCloud.Controllers
         }
 
         [HttpPost("gameplay")]
-        public ActionResult<Game> Gameplay([FromBody] GamePlay request)
+        public async Task<IActionResult> Gameplay([FromBody] GamePlay request)
         {
             try
             {
                 var game = _gameService.GamePlay(request);
-                _hubContext.Clients.All.SendAsync("ReceiveGameUpdate", game);
+                if (game == null) return BadRequest("Invalid move.");
+                _ = _hubContext.Clients.All.SendAsync("ReceiveGameUpdate", game);
+
+                if (game.Status == GameStatus.Finished)
+                {
+                    var gameScore = new GameScore
+                    {
+                        GameId = game.Id,
+                        Player1 = game.Player1.Login,
+                        Player2 = game.Player2.Login,
+                        Winner = (int) game.Winner
+                    };
+
+                    await _scoreService.SaveGameScore(gameScore);
+                }
+
                 return Ok(game);
             }
             catch (NotFoundException ex)
@@ -82,6 +100,12 @@ namespace TicTacToeCloud.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        
+
+        [HttpGet("scores/{playerName}")]
+        public async Task<IActionResult> GetGameScores(string playerName)
+        {
+            var scores = await _scoreService.GetGamesByPlayer(playerName);
+            return Ok(scores);
+        }
     }
 }

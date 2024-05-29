@@ -1,3 +1,5 @@
+using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2.DataModel;
 using Amazon.S3;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using TicTacToeCloud;
@@ -13,6 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSignalR();
 builder.Services.AddScoped<GameService, GameService>();
+builder.Services.AddScoped<ScoreService>();
 
 // Retrieve environment variables
 var publicIp = Environment.GetEnvironmentVariable("PUBLIC_IP") ?? "localhost";
@@ -58,6 +61,8 @@ builder.Services.ConfigureOptions<JwtBearerConfigureOptions>();
 // AWS Configuration
 builder.Services.AddDefaultAWSOptions(builder.Configuration.GetAWSOptions());
 builder.Services.AddAWSService<IAmazonS3>();
+builder.Services.AddAWSService<IAmazonDynamoDB>();
+builder.Services.AddScoped<IDynamoDBContext, DynamoDBContext>();
 
 
 var app = builder.Build();

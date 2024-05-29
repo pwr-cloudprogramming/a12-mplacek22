@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "EqpiXWKIUm6opMSVdVwkpGyhS11eVZLn9Ob5u05+kKU=",
+  "Source": "TicTacToeCloud",
+  "BasePath": "_content/TicTacToeCloud",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

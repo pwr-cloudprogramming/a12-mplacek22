@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "7+T6n9hKQLGKz/7HfCnYPQq3YaTZTUh/fOuFex2OyZOWMKXb5s/CH2UxDSLjvVQa9fMJoULRb0OJvlrI77LSlQ==",
+  "dgSpecHash": "jEkaPV8xinVpSELd2Lbj3ivCN2l8I+LARXTxFRyl4IAwt7hf35L34o7Q2Ypw48vlDTpdcNrqPmyGDgGRpPmwuw==",
   "success": true,
   "projectFilePath": "C:\\Studia\\Semestr_6\\Programowanie_w_chmurze\\a12-mplacek22\\backend\\src\\TicTacToeCloud\\TicTacToeCloud\\TicTacToeCloud.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\awssdk.core\\3.7.304.6\\awssdk.core.3.7.304.6.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\awssdk.dynamodbv2\\3.7.303.13\\awssdk.dynamodbv2.3.7.303.13.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\awssdk.extensions.netcore.setup\\3.7.300\\awssdk.extensions.netcore.setup.3.7.300.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\awssdk.s3\\3.7.308.5\\awssdk.s3.3.7.308.5.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.5\\microsoft.aspnetcore.authentication.jwtbearer.8.0.5.nupkg.sha512",

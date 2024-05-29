@@ -192,8 +192,7 @@ function makeAMove(type, xCoordinate, yCoordinate) {
     });
 }
 
-
-function displayResponse(data) {
+async function displayResponse(data) {
 
     let board = data.board;
     for (let i = 0; i < board.length; i++) {

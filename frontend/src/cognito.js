@@ -276,6 +276,11 @@ function updateSignedInUsername(userName) {
     const profilePicUrl = localStorage.getItem("profilePicUrl");
     if (profilePicUrl) {
         document.getElementById("signedInUserProfilePic").src = profilePicUrl;
+        visibility("signedInUserProfilePic", true);
+    }
+    else {
+        document.getElementById("signedInUserProfilePic").src = "";
+        visibility("signedInUserProfilePic", false);
     }
 }
 
@@ -350,16 +355,11 @@ function actionSignInUser() {
     updateModal(true, false, false, true, false, false, "Sign In", "Authenticate user");
 }
 
-function signOutUser(callback) {
-    if (cognitoUser) {
-        if (cognitoUser.signInUserSession) {
-            cognitoUser.signOut();
-            localStorage.removeItem("loggedInUser");
-            callback(null, {});
-            return;
-        }
-    }
-    callback({ name: "Error", message: "User is not signed in" }, null);
+function actionSignOutUser() {
+	let message = `user ${user.name} signed out`
+	let callback = createCallback(message, user.name, 
+		                          user.email, user.email_verified, "Signed Out");
+	signOutUser(callback);
 }
 
 function getSessionToken() {
