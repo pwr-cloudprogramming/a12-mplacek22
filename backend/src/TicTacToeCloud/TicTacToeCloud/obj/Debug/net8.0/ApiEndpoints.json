@@ -17,27 +17,6 @@
   },
   {
     "ContainingType": "TicTacToeCloud.Controllers.FilesController",
-    "Method": "GetPresignedUrl",
-    "RelativePath": "api/Files/getPresignedUrl",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "fileName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "username",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TicTacToeCloud.Controllers.FilesController",
     "Method": "UploadFileAsync",
     "RelativePath": "api/Files/upload",
     "HttpMethod": "POST",

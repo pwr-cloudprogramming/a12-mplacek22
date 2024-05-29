@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "profile_pictures" {
-  bucket = "tictactoe-profile-pictures"
+  bucket = "tic-tac-toe-pic-bucket"
   acl    = "public-read"
 
   cors_rule {

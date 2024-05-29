@@ -235,7 +235,7 @@ resource "aws_ecs_task_definition" "tictactoe_backend_task" {
   container_definitions = jsonencode([
     {
       name        = "backend"
-      image       = "851725643716.dkr.ecr.us-east-1.amazonaws.com/tictactoe_back:cognito"
+      image       = "851725643716.dkr.ecr.us-east-1.amazonaws.com/tictactoe_back:a12"
       essential   = true
       portMappings = [
         {
@@ -274,7 +274,7 @@ resource "aws_ecs_task_definition" "tictactoe_frontend_task" {
   container_definitions = jsonencode([
     {
       name        = "frontend"
-      image       = "851725643716.dkr.ecr.us-east-1.amazonaws.com/tictactoe_front:cognito"
+      image       = "851725643716.dkr.ecr.us-east-1.amazonaws.com/tictactoe_front:a12"
       essential   = true
       portMappings = [
         {
