@@ -94,7 +94,7 @@ Terraform is used to define and provision all resources. The configuration inclu
 
 Screenshots of configured AWS services. Screenshots of your application running.
 
-![App](img/img_01.png)
+![App](img/img_01.jpg)
 ![Add new user](img/add_new_use.jpg)
 
 # Reflections
